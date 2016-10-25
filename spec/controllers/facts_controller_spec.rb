@@ -1,16 +1,18 @@
-require_relative '../../app/controllers/welcome_controller'
+require_relative '../../app/controllers/facts_controller'
 
-describe WelcomeController do 
-  context 'you reload the page' do 
-    it 'shows you a different puffin fact' do
-    	controller = WelcomeController.new
+describe FactsController do 
+
+  context 'the index is accessed' do 
+    it 'returns one of ten different puffin facts' do
+    	controller = FactsController.new
       facts = []
+
       100.times do 
       	facts << controller.index
       end
 
       expect(facts.uniq.size).to eq 10
-
     end
   end
+
 end
